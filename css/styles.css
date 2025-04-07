@@ -60,4 +60,95 @@ header ul {
 }
 nav li {
     margin: 0 1em;
+    position: relative;
+    padding: 20px 0;
 }
+
+.sub-menu {
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    background-color: #fff;
+    gap: 20px;
+    padding: 10px 20px 20px 10px;
+    border-radius: 20px;
+    border: 1px solid #efefef;
+    margin-top: 10px;
+    width: 120px;
+    display: none;
+}
+
+nav li:hover .sub-menu {
+    display: block;
+}
+
+.sub-menu li {
+    margin: 10px;
+    padding: 0;
+}
+
+.sub-menu li:last-child {
+    margin-bottom: 0;
+}
+
+.navToggler, .navTogglerMenu {
+    display: none;
+}
+
+@media only screen and (max-width: 767px) {
+    header nav {
+        position: absolute;
+        width: 100%;
+        top: 30%;
+        left: 0;
+        z-index: 1;
+        display: none;
+    }
+
+    header img {
+        width: 100%;
+    }
+
+    header nav ul {
+        display: block;
+        width: 100%;
+        padding: 0;
+        background-color: #efefef;
+        border-top: 1px solid #fff;
+    }
+
+    header nav li {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #fff;
+    }
+    header .button {
+        width: 100%; /* I tried to make the button full width but it didn't work, and tried other ways and I couldn't figure out what was causing the problem */
+    }
+
+    .sub-menu {
+        display: flex;
+        position: relative;
+        border-radius: 0;
+        width: 100%;
+        padding: 20px 0;
+        gap: 0;
+    }
+
+    .navToggler, .navTogglerMenu {
+        display: block;
+    }
+
+    .navTogglerMenu img {
+        width: 30px;
+    }
+    .navToggler, .menuClose, .navToggler:checked ~ .navTogglerMenu .menuOpen {
+        display: none;
+    }
+
+    .navToggler:checked ~ nav, .navToggler:checked ~ .navTogglerMenu .menuClose {
+        display: block;
+    }
+}
+
+   
